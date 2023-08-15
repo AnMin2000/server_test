@@ -1,9 +1,10 @@
 package com.codingrecipe.project01.controller;
 
+import com.codingrecipe.project01.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
 
 /**
  * Handles requests for the application home page.
@@ -11,15 +12,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HomeController {
 
-    @GetMapping(value="/android")
+
+    @PostMapping(value="/android")
     @ResponseBody
-    public String androidResponse(
-            @RequestParam("id") String id,
-            @RequestParam("password") String password
-    ) {
+    public String androidResponse(@RequestBody User user) {
+
         System.out.println("Connection from Android");
-        System.out.println("id: " + id + ", pw: " + password);
+        System.out.println("id: " + user.getId() + ", pw: " + user.getPassword());
 
         return "1";
     }
+
 }
