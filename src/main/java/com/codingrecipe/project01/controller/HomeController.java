@@ -12,15 +12,19 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class HomeController {
 
-
-    @PostMapping(value="/android")
     @ResponseBody
+    @GetMapping("/")
+    public String index(){
+        return "1234";
+    }
+    @ResponseBody
+    @PostMapping(value="/android")
     public String androidResponse(@RequestBody User user) {
 
         System.out.println("Connection from Android");
         System.out.println("id: " + user.getId() + ", pw: " + user.getPassword());
 
-        return "1";
+        return "12";
     }
 
 }
